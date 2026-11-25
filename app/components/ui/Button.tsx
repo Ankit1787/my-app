@@ -1,6 +1,9 @@
 'use client'
+// import { fetchAPI } from '@/app/lib/api';
 import { useRouter } from 'next/navigation'
-const Button = ({ url }: { url: string }) => {
+const Button =  ({ url }: { url: string }) => {
+    //   const res = await fetchAPI(`/products/${url}`)
+
     const router = useRouter();
     const handleClick = () => {
         // Handle button click logic here

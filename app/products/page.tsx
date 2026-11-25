@@ -1,14 +1,35 @@
-import React from 'react'
 import ProductCard from '../features/products/components/ProductCard'
+import { fetchAPI } from '../lib/api';
 
-const ProductsPage = () => {
+type Product = {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    thumbnail: string;
+}
+
+const ProductsPage = async () => {
+    const res=await fetchAPI('/products', {
+        cache: 'no-store'
+    })
+    
+    const products= res.products as Product[];
+
+      for(let i=0;i<300000;i++){
+       
+    console.log("loop running...")
+     }
   return (
     <div className="p-4">
         <div>ProductsPage</div>
         <div className="grid grid-cols-4 gap-4 mt-4">
             {
-                Array.from({ length: 10 }, (_, index) => (
-                    <ProductCard key={index}  url={`/products/${index}`} />
+                products.map((product: Product, index: number) => (
+                    <ProductCard key={index}  product={product} url={`/products/${product.id}`} />
                 ))
             }
         </div>

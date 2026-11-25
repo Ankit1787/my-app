@@ -1,5 +1,5 @@
-import React from 'react'
-
+import styles from './UserCard.module.css'
+import UserButton from './UserButton';
 type UserCardProps = {
   user: {
     name: string;
@@ -8,8 +8,9 @@ type UserCardProps = {
   };
 };
 const UserCard = ({ user }: UserCardProps) => {
+
   return (
-    <div className="border p-4 rounded-lg shadow-md">
+    <div className={styles.userCard}>
         <div>
             {
                 new Date().toLocaleDateString('en-In', {
@@ -29,6 +30,9 @@ const UserCard = ({ user }: UserCardProps) => {
         <h2 className="text-lg font-semibold mb-2">{user?.name}</h2>
         <h3 className="text-md font-medium mb-2">{user?.email}</h3>
         <p className="text-gray-600 mb-4">{user?.description}</p>
+        <div className="flex items-center gap-2">
+         <UserButton/>
+        </div>  
     </div>
   )
 }
