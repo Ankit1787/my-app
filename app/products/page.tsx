@@ -19,10 +19,6 @@ const ProductsPage = async () => {
     
     const products= res.products as Product[];
 
-      for(let i=0;i<300000;i++){
-       
-    console.log("loop running...")
-     }
   return (
     <div className="p-4">
         <div>ProductsPage</div>

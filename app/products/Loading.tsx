@@ -1,12 +1,18 @@
-import React from 'react'
-
-const Loading = () => {
+export default function Loading() {
   return (
-    <div className="p-4 h-screen flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin">
-            Loading...
-            </div></div>
-  )
-}
+    <div className="p-4">
+      <h1 className="text-2xl font-bold text-red-600">
+        LOADING PRODUCTS...
+      </h1>
 
-export default Loading
+      <div className="grid grid-cols-4 gap-4 mt-4">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div
+            key={index}
+            className="h-64 animate-pulse rounded-lg bg-gray-300"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
